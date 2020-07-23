@@ -46,6 +46,7 @@ import { LikedpostsComponent } from './component/likedposts/likedposts.component
 
 
 import {MatDialogModule} from '@angular/material/dialog';
+import { SliderComponent } from './component/slider/slider.component';
 
 
 
@@ -75,7 +76,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     CountrycatComponent,
     LoginComponent,
     SignupComponent,
-    LikedpostsComponent
+    LikedpostsComponent,
+    SliderComponent
     
   ],
   imports: [
