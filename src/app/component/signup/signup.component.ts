@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { LoginService } from 'src/app/service/login.service';
 import { user } from '../login/user';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,10 +11,8 @@ import { user } from '../login/user';
 
 export class SignupComponent implements OnInit {
   @ViewChild('loginRef', {static: true }) loginElement: ElementRef;
-  constructor(private _ser:LoginService ) { }
+  constructor(private _ser:LoginService) {}
   auth2: any;
-
-
 
 
   fbLibrary() {

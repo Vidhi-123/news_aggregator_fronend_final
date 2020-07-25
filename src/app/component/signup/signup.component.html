@@ -1,55 +1,39 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-    <section>
-        <div class="container">
-            <div class="user signinBx">
-                <div class="formBx">
-                    <form>
-                        <h2>Create an Account</h2>
-                        <input type="text" name="" placeholder="Username">
-                        <input type="email" name="" placeholder="Email Address">
-                        <input type="password" name="" placeholder="Password">
-                        <input type="password" name="" placeholder="Confirm Password">
-                        <input type="password" name="" placeholder="Confirm Password">
-                        <input type="password" name="" placeholder="Confirm Password">
-                        
-                        <input type="submit" name="" value="Sign up">
-                        <p class="signup">Already have an account ? <a href="/login">Sign in</a></p>
-                        <button type="button" (click)="signInWithGoogle()" class="btn btn-primary">Sign In With Google</button>
- 
-                    </form>
-                </div>
-                <div class="imgBx"><img height="500px" width="400px" src="../../assets/delhi.jpg"></div>
-            </div>
-        </div>
-    </section>
-    <img src="{{ user.photoUrl }}">
-<div>
-  <h4>{{ user.name }}</h4>
-  <p>{{ user.email }}</p>
-</div>
-</body>
-</html> -->
 
 
-<!-- <html>
-    <head></head>
-    <body>
-        <button type="button" (click)="signInWithGoogle()" class="btn btn-primary">Sign In With Google</button>
-        <button type="button" (click)="signInWithFB()" class="btn btn-primary">Sign In With Facebook</button>
 
-        <img src="{{ user.photoUrl }}">
-        <div>
-        <h4>{{ user.name }}</h4>
-        <p>{{ user.email }}</p>
-        </div>
-    </body>
-</html> -->
+
+
+
+<html>
+  <body>
+
+
+
+
+    
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBIp3X4-Yj218zrXWUY6-vY0DnvaMQQcVg",
+    authDomain: "endless-upgrade-199110.firebaseapp.com",
+    databaseURL: "https://endless-upgrade-199110.firebaseio.com",
+    projectId: "endless-upgrade-199110",
+    storageBucket: "endless-upgrade-199110.appspot.com",
+    messagingSenderId: "68797875695",
+    appId: "1:68797875695:web:c7a95200eb257a83d1a21a",
+    measurementId: "G-HZKJ6199XF"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
 
 
 
@@ -58,6 +42,88 @@
 
 
 
+    <script>
+
+document.getElementById('sign-in').addEventListener('click',signin());
+
+      function signin()
+      {
+      var provider = new firebase.auth.TwitterAuthProvider();
+      firebase.auth().useDeviceLanguage();
+      firebase.auth().signInWithPopup(provider).then(function(result) {
+    // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
+    // You can use these server side with your app's credentials to access the Twitter API.
+    var token = result.credential.accessToken;
+    console.log(token);
+    var secret = result.credential.secret;
+    console.log(secret);
+    // The signed-in user info.
+  
+    document.querySelector("#sign-out").style.display="block";
+    var user = result.user;
+    console.log(user.email);
+    var userImage = document.querySelector("#user-image");
+  
+    // appending the user profile image
+  
+    var userPic = document.createElement("img");
+    userPic.src=user.photoURL;
+    userImage.append(userPic);
+  
+    // appending the user email address
+  
+    var userEmail = document.querySelector("#user-email");
+    userEmail.innerHTML = user.displayName;
+  
+    console.log(user);
+    // ...
+  }).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // The email of the user's account used.
+    var email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
+    // ...
+  });
+      }
+  </script>
+  
+
+
+
+
+
+    <p>For Sign in you must have gmail id or facebook id</p>
+        
+  
+    <h2>Google Login</h2>
+    <button class="loginBtn loginBtn--google"  #loginRef style="display: inline;border:1px solid white;background-color: white;">
+        <img src="../../../assets/img/google1.png" height="150px" width="150px" >
+      </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+      <button class="loginBtn loginBtn--facebook" (click)="login()" style="display: inline;border:1px solid white;background-color: white;">
+          <img src="../../../assets/img/fb.png" height="150px" width="150px" style="display: inline;">
+        </button>
+
+        <button id="sign-in">
+          Sign in with Twitter
+      </button>
+
+
+      
+
+
+
+    
+  </body>
+</html>
+
+
+
+
+        
 
 
 
@@ -70,24 +136,9 @@
 
 
 
-            <p>For Sign in you must have gmail id or facebook id</p>
 
 
 
 
-          <button #loginRef style="display: inline;border:1px solid white;background-color: white;">
-              <img src="../../../assets/img/google1.png" height="150px" width="150px" >
-            </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button class="loginBtn loginBtn--facebook" (click)="login()" style="display: inline;border:1px solid white;background-color: white;">
-                <img src="../../../assets/img/fb.png" height="150px" width="150px" style="display: inline;">
-              </button>
-   
 
-  <!-- <div class="container mt-5">
-
-    <div class="row mt-5">
-      <div class="col-md-4 mt-2 m-auto ">
-          
-      </div>    
-    </div>
-  </div> -->
+         

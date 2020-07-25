@@ -5,7 +5,14 @@
 export const environment = {
   production: false,
   firebaseConfig:{
-
+    apiKey: "AIzaSyBIp3X4-Yj218zrXWUY6-vY0DnvaMQQcVg",
+    authDomain: "endless-upgrade-199110.firebaseapp.com",
+    databaseURL: "https://endless-upgrade-199110.firebaseio.com",
+    projectId: "endless-upgrade-199110",
+    storageBucket: "endless-upgrade-199110.appspot.com",
+    messagingSenderId: "68797875695",
+    appId: "1:68797875695:web:c7a95200eb257a83d1a21a",
+    measurementId: "G-HZKJ6199XF"
   },
   googleMapsApi:'AIzaSyArzm1jxOgSFuiZp6x6oE5Sq5Q5rvFl6b4',
   header_flag:false  
