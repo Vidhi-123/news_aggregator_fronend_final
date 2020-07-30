@@ -1,4 +1,4 @@
-.container {
+/* .container {
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -43,28 +43,28 @@
     transition: 0.5s;
   }
   .container .slider .slide.slide1 img {
-    /* background: url(../../../assets/img/covid19.jpg); */
+  
     height: 100%;
     width: 100%;
     background-size: cover;
     background-position: center;
   }
   .container .slider .slide.slide2 img{
-    /* background: url(../../../assets/img/covid19.jpg); */
+  
     height: 100%;
     width: 100%;
     background-size: cover;
     background-position: center;
   }
   .container .slider .slide.slide3 img{
-    /* background: url(../../../assets/img/covid19.jpg); */
+  
     height: 100%;
     width: 100%;
     background-size: cover;
     background-position: center;
   }
   .container .slider .slide.slide4 img{
-    /* background: url(../../../assets/img/covid19.jpg); */
+    
     height: 100%;
     width: 100%;
     background-size: cover;
@@ -115,4 +115,38 @@
     .container .slider .slide .caption p {
       font-size: 16px;
     }
+  } */
+
+  img
+  {
+    height: 500px;
+    width: 100px;
   }
+  
+@media only screen and (min-width: 600px) {
+  .slide1
+  {
+      width:50%;
+      display: inline-block;
+  }  
+  .mobile
+  {
+      display: none;
+  }
+} 
+
+
+
+@media only screen and (max-width: 600px) {
+  
+  .desktop
+  {
+      display: none;
+  }
+  .article
+  {
+      height: 30em;
+      background-color: black;
+  }
+  
+} 

@@ -37,11 +37,6 @@ body {
 	font-size:15px;
 	font-weight:300;
 }
-html body
-{
-	margin:0;
-	padding:0;
-}
 
 h1,h2,h3,h4,h5,h6 {
 	font-family: 'Open Sans', sans-serif;
@@ -540,13 +535,11 @@ textarea.input {
 .article .article-img {
 	position:relative;
 	overflow:hidden;
-
-	
+	margin-bottom:15px;
 }
 
 .article .article-img img {
 	width:100%;
-	height: 50%;
 	-webkit-transition:0.5s -webkit-transform;
 	transition:0.5s -webkit-transform;
 	transition:0.5s transform;
@@ -554,7 +547,6 @@ textarea.input {
 }
 
 .article:hover .article-img img {
-	
 	-webkit-transform:scale(1.1);
 	    -ms-transform:scale(1.1);
 	        transform:scale(1.1);

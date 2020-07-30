@@ -61,7 +61,7 @@ login() {
                     console.log(data);
                     localStorage.setItem('email_id',userInfo.email);
                     localStorage.setItem('user_id',data.insertId);
-                    window.location.href="http://localhost:4200/";
+                    window.location.href=localStorage.getItem("url");
                   }
                 )
               }
@@ -70,7 +70,7 @@ login() {
                 console.log(data);
                 localStorage.setItem('email_id',data[0].email_id);
                 localStorage.setItem('user_id',data[0].user_id);
-                window.location.href="http://localhost:4200/";
+                window.location.href=localStorage.getItem("url");
               }
             }
           )
@@ -107,7 +107,7 @@ login() {
                   console.log(data);
                   localStorage.setItem('email_id',profile.getEmail());
                   localStorage.setItem('user_id',data.insertId);
-                  window.location.href="http://localhost:4200/";
+                  window.location.href=localStorage.getItem("url");
                 }
               )
             }
@@ -116,7 +116,7 @@ login() {
               console.log(data);
               localStorage.setItem('email_id',data[0].email_id);
               localStorage.setItem('user_id',data[0].user_id);
-              window.location.href="http://localhost:4200/";
+              window.location.href=localStorage.getItem("url");
             }
           }
         )

@@ -52,6 +52,7 @@ export class ScienceComponent implements OnInit {
     this.newsService.getArticleByScience().subscribe((data: any) => {
 
       for (let i = 0; i < data.articles.length; i++) {
+        this.liked_posts.push(0);
         if (data.articles[i].description != null) {
 
           if (data.articles[i].description.length >= 150) {

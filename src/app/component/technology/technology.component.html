@@ -1,49 +1,53 @@
 <!DOCTYPE html>
- <html lang="en">
- 
- <head>
-	 <meta charset="UTF-8">
-	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	 <title>Document</title>
- </head>
- 
- <body>
- 
-	 <div class="container-fluid">
-		 <div class="row">
-			 <div *ngFor="let item of technology;let i=index;">
-				 <a href="{{item.url}}" target="_blank" style="text-decoration: none;color: black;">
-					 <div [class]="(((i%12)==3 || (i%12)==7 || (i%12)==11 ) && (i%12)>=3)?'col-md-6':((i%12)<3)?'col-md-4':'col-md-3'"
-						 style="padding-top: 50px;">
-						 <div class="card example-card">
- 
-							 <div class="post-image">
-								 <img src="{{item.urlToImage}}" alt="" class="img-responsive">
-							 </div>
-							 <div class="news-content">
-								<a href="{{item.url}}" target="_blank" style="text-decoration: none;color: black;">
-									<h2 class="post-header">{{item.title}}</h2>
-									<p>{{item.description}}</p>
-								</a>
-								<button mat-icon-button aria-label="Example icon button with a heart icon"
-									[color]="(liked_posts[i]%2) ? 'warn' :''" (click)="onClickLike(item,i)">
-									<mat-icon>favorite</mat-icon>
-								</button>
-								<a href="https://www.facebook.com/sharer/sharer.php?app_id=317441179435028&sdk=joey&u={{item.url}}&display=popup&ref=plugin&src=share_button"
-									onclick="return !window.open(this.href, 'Facebook', 'width=640,height=580')">
-									<img style="display: inline;height: 30px; width: 30px;"
-										src="https://img.icons8.com/material/24/000000/facebook--v1.png" />
-								</a>
+<html lang="en">
 
-								<button (click)="copyMessage(item.url)" value="click to copy">Copy this</button>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div *ngFor="let item of technology;let i=index;">
+
+				<div [class]="(((i%12)==3 || (i%12)==7 || (i%12)==11 ) && (i%12)>=3)?'col-md-6':((i%12)<3)?'col-md-4':'col-md-3'"
+					style="padding-top: 50px;">
+					<div class="card example-card">
+						<a href="{{item.url}}" target="_blank" style="text-decoration: none;color: black;">
+							<div class="post-image">
+								<img src="{{item.urlToImage}}" alt="" class="img-responsive">
 							</div>
-						 </div>
-					 </div>
-				 </a>
-			 </div>
-		 </div>
-	 </div>
-	 <script src="src/js/angular-socialshare.js"></script>  
- </body>
- 
- </html>
+						</a>
+						<div class="news-content">
+							<a href="{{item.url}}" target="_blank" style="text-decoration: none;color: black;">
+								<h2 class="post-header">{{item.title}}</h2>
+								<p>{{item.description}}</p>
+							</a>
+							<button mat-icon-button aria-label="Example icon button with a heart icon"
+								[color]="(liked_posts[i]%2) ? 'warn' :''" (click)="onClickLike(item,i)">
+								<mat-icon>favorite</mat-icon>
+							</button>
+							<a href="https://www.facebook.com/sharer/sharer.php?app_id=317441179435028&sdk=joey&u={{item.url}}&display=popup&ref=plugin&src=share_button"
+								onclick="return !window.open(this.href, 'Facebook', 'width=640,height=580')">
+								<img style="display: inline;height: 30px; width: 30px;"
+									src="https://img.icons8.com/material/24/000000/facebook--v1.png" />
+							</a>
+
+							<button (click)="copyMessage(item.url)" value="click to copy">Copy this</button>
+
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<script src="src/js/angular-socialshare.js"></script>
+</body>
+
+</html>

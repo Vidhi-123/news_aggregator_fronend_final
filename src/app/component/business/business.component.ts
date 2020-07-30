@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { NewsService } from 'src/app/service/news.service';
 import { DummyService } from 'src/app/service/dummy.service';
 import { LikedPostsService } from 'src/app/service/liked-posts.service';
@@ -12,7 +12,20 @@ import { user } from '../login/user';
 export class BusinessComponent implements OnInit {
   business: Array<any> = [];
   liked_posts: number[] = [];
-  constructor(private newsService: NewsService, private _likedser: LikedPostsService) { }
+
+  @Input() url = location.href;
+    @Input() text = '';
+  constructor(private newsService: NewsService, private _likedser: LikedPostsService) { 
+
+    const url = 'https://platform.twitter.com/widgets.js';
+    if (!document.querySelector(`script[src='${url}']`)) {
+        let script = document.createElement('script');
+        script.src = url;
+        document.body.appendChild(script);
+    }
+  }
+
+  
 
   copyMessage(val: string) {
     const selBox = document.createElement('textarea');
@@ -52,7 +65,7 @@ export class BusinessComponent implements OnInit {
   ngOnInit() {
 
 
-
+    window['twttr'] && window['twttr'].widgets.load();
 
 
 

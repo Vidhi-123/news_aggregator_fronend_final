@@ -7,11 +7,13 @@ import { user } from '../login/user';
 @Component({
   selector: 'app-entertainment',
   templateUrl: './entertainment.component.html',
-  styleUrls: ['./entertainment.component.css']
+  styleUrls: ['./entertainment.component.css'],
+  
 })
 export class EntertainmentComponent implements OnInit {
   entertainment: Array<any> = [];
   liked_posts: number[] = [];
+  user_id:number;
   constructor(private newsService: NewsService, private _likedser: LikedPostsService) { }
   copyMessage(val: string) {
     const selBox = document.createElement('textarea');
@@ -52,6 +54,7 @@ export class EntertainmentComponent implements OnInit {
     this.newsService.getArticleByentertainment().subscribe((data: any) => {
 
       for (let i = 0; i < data.articles.length; i++) {
+        this.liked_posts.push(0);
         if (data.articles[i].description != null) {
 
           if (data.articles[i].description.length >= 150) {
@@ -65,10 +68,10 @@ export class EntertainmentComponent implements OnInit {
         
         if (i == data.articles.length - 1) {
           console.log('hey');
-          let user_id = Number(localStorage.getItem('user_id'));
-          console.log(user_id);
-          if (user_id != null) {
-            this._likedser.getLikedPostsByUserId(user_id).subscribe(
+          this.user_id = Number(localStorage.getItem('user_id'));
+          console.log(this.user_id);
+          if (this.user_id != null) {
+            this._likedser.getLikedPostsByUserId(this.user_id).subscribe(
               (data: any[]) => {
                 console.log(data);
                 for (let i = 0; i < this.entertainment.length; i++) {

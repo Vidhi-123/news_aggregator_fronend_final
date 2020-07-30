@@ -52,6 +52,7 @@ export class HealthComponent implements OnInit {
     this.newsService.getArticleByHealth().subscribe((data: any) => {
 
       for (let i = 0; i < data.articles.length; i++) {
+        this.liked_posts.push(0);
         if (data.articles[i].description != null) {
 
           if (data.articles[i].description.length >= 150) {

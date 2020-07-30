@@ -44,10 +44,11 @@ import { SignupComponent } from './component/signup/signup.component';
 
 import { LikedpostsComponent } from './component/likedposts/likedposts.component';
 
-
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import {MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
 import { SliderComponent } from './component/slider/slider.component';
-
+import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
 
 
 
@@ -72,6 +73,7 @@ import { SliderComponent } from './component/slider/slider.component';
     AddSourcePageComponent,
     SourcePageDetailComponent,
     DesignForNewsComponent,
+
     CountryComponent,
     CountrycatComponent,
     LoginComponent,
@@ -92,8 +94,11 @@ import { SliderComponent } from './component/slider/slider.component';
     BrowserAnimationsModule,
     MatIconModule,
     MatButtonModule,
+    MatMenuModule,
     MatFormFieldModule,
-   
+    JwSocialButtonsModule,
+    CarouselModule,
+
     AngularFireModule.initializeApp(firebaseConfig),
     AgmCoreModule.forRoot({
       apiKey:environment.googleMapsApi
