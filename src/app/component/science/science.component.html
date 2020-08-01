@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	
 </head>
 
 <body>
@@ -31,13 +32,54 @@
 								[color]="(liked_posts[i]%2) ? 'warn' :''" (click)="onClickLike(item,i)">
 								<mat-icon>favorite</mat-icon>
 							</button>
+
+							<button [matMenuTriggerFor]="menu" mat-icon-button aria-label="Example icon button with a heart icon"
+								 (click)="onClickShare()">
+								<mat-icon>share</mat-icon>
+							</button>
+
+
+
+
+							<mat-menu #menu="matMenu">
+								<button mat-menu-item>
+									<a style="text-decoration: none;" href="https://facebook.com/sharer.php?u={{item.url}}/post/2018/06/01/{{item.title}}" target="_blank">
+								 	<img src="../../../assets/img/3_icon.jpeg">
+										 Facebook
+									</a>
+								</button>
+
+								<button mat-menu-item>
+									<a href="https://twitter.com/intent/tweet?url={{item.url}};text={{item.title}}" style="text-decoration: none;" target="_blank">
+										 <img src="../../../assets/img/twitter_icon.png" style="margin-left: -10px;" height="50px" width="50px">
+										Twitter
+									</a>
+								</button>
+
+								<button mat-menu-item (click)="copyMessage(item.url)">
+								  <mat-icon>Copy</mat-icon>
+								  <span>Copy Url</span>
+								</button>
+							  </mat-menu>
+
+							  <!-- <tweet url={{item.url}} text={{item.title}}></tweet> -->
+
+
+
+
+
+
+
+
+<!-- 							
 							<a href="https://www.facebook.com/sharer/sharer.php?app_id=317441179435028&sdk=joey&u={{item.url}}&display=popup&ref=plugin&src=share_button"
 								onclick="return !window.open(this.href, 'Facebook', 'width=640,height=580')">
 								<img style="display: inline;height: 30px; width: 30px;"
 									src="https://img.icons8.com/material/24/000000/facebook--v1.png" />
 							</a>
+							 -->
 
-							<button (click)="copyMessage(item.url)" value="click to copy">Copy this</button>
+							<!-- <button  value="click to copy">Copy this</button> -->
 
 
 						</div>
@@ -49,4 +91,5 @@
 	</div>
 	<script src="src/js/angular-socialshare.js"></script>
 </body>
+
 </html>
