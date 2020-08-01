@@ -44,7 +44,7 @@ import { SignupComponent } from './component/signup/signup.component';
 
 import { LikedpostsComponent } from './component/likedposts/likedposts.component';
 
-import { CarouselModule } from 'ngx-owl-carousel-o';
+
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
 import { SliderComponent } from './component/slider/slider.component';
@@ -97,7 +97,7 @@ import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
     MatMenuModule,
     MatFormFieldModule,
     JwSocialButtonsModule,
-    CarouselModule,
+
 
     AngularFireModule.initializeApp(firebaseConfig),
     AgmCoreModule.forRoot({
