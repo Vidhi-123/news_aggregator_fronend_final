@@ -167,9 +167,7 @@ a{
     font-size: 2rem;
 }
 
-img{
-    width: 100%;
-}
+
 .card p{
     font-family: 'Oswald', sans-serif;
     font-size: 2rem;
@@ -191,7 +189,7 @@ img{
     margin-bottom: 2rem;
 }
 
-.card img{
+.card .img1{
     height: 400px;
 }
 

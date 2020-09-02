@@ -7,8 +7,8 @@ import { user } from '../component/login/user';
 })
 
 export class IntrestService {
-private cat='http://localhost:3000/cat/';
-private intrest='http://localhost:3000/intrest/';
+private cat:string='http://localhost:3000/cat/';
+private intrest:string='http://localhost:3000/intrest/';
   constructor(private _http:HttpClient) { }
   getallCateogry(){
   
@@ -24,6 +24,7 @@ addIntrest(item)
 }
 getIntrestByUserId(user_id)
 {
+  console.log(user_id);
     return this._http.get(this.intrest+user_id);
 }
 deleteIntrestByUserId(user_id)

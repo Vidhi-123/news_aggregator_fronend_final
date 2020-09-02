@@ -43,6 +43,8 @@ export class BusinessComponent implements OnInit {
 
   onClickLike(item, i) {
     let user_id = Number(localStorage.getItem('user_id'));
+    if(user_id!=0)
+    {
     this.liked_posts[i]++;
     console.log(this.liked_posts[i]);
     if (this.liked_posts[i] % 2 != 0) {
@@ -59,6 +61,10 @@ export class BusinessComponent implements OnInit {
         }
       )
     }
+  }
+  else{
+    alert("please make sure you are log in!...");
+  }
   }
 
 

@@ -11,20 +11,54 @@
     <div class="container">
         <div class="main-header">
             <h1><span>Latest </span>{{item1}} News</h1>
-            <p> "Yoga is the journey of the self, through the self, to the self."</p>
+            
         </div>
         <div *ngFor="let item of news">
-            <a href="{{item.url}}" target="_blank" style="text-decoration: none;color: black;">
+            
             <div class="card">
-                <img src="{{item.urlToImage}}" alt="image loading">
+                <img src="{{item.news.urlToImage}}" alt="image loading" class="img1">
                 <div>
-                    <h3>{{item.title}}</h3>
-                    <p>{{item.description}}</p>
-                    <a href="#" class="btn">LIKE</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="#" class="btn">SHARE</a>
+                    <a href="{{item.news.url}}"  target="_blank" style="text-decoration: none;color: black;">
+                    <h3>{{item.news.title}}</h3>
+                    <p>{{item.news.description}}</p>
+                    
+                </a>
+                    
+                    <button mat-icon-button aria-label="Example icon button with a heart icon" [color]="(item.liked_posts%2) ? 'warn' :''" (click)="onClickLike(item)">
+                    <mat-icon>favorite</mat-icon>
+                </button>
+
+                <button [matMenuTriggerFor]="menu" mat-icon-button aria-label="Example icon button with a heart icon" (click)="onClickShare()">
+                    <mat-icon>share</mat-icon>
+                </button>
+
+
+
+
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item>
+                        <a style="text-decoration: none;" href="https://facebook.com/sharer.php?u={{item.url}}/post/2018/06/01/{{item.title}}" target="_blank">
+                         <img src="../../../assets/img/3_icon.jpeg">
+                             Facebook
+                        </a>
+                    </button>
+
+                    <button mat-menu-item>
+                        <a href="https://twitter.com/intent/tweet?url={{item.url}};text={{item.title}}" style="text-decoration: none;" target="_blank">
+                             <img src="../../../assets/img/twitter_icon.png" style="margin-left: -10px;" height="50px" width="50px">
+                            Twitter
+                        </a>
+                    </button>
+
+                    <button mat-menu-item (click)="copyMessage(item.url)">
+                      <mat-icon>Copy</mat-icon>
+                      <span>Copy Url</span>
+                    </button>
+                  </mat-menu>
+
                 </div>
             </div>
-        </a>
+        
         </div>
     </div>
 

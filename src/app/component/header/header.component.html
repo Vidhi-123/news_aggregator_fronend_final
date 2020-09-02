@@ -103,8 +103,8 @@
            
           </li>
           <li id="in"><a routerLink="/interest" (click)="onClickIn()">intrests</a></li>
-          <li id="de" *ngIf="_global.header_flag"><a routerLink="/design" (click)="onClickde()">View Intrested News</a></li>
-          <li id="lik" *ngIf="_global.like_flag"><a routerLink="/likedposts" (click)="onClicklik()">View favorite News</a></li>
+          <li id="de" *ngIf="_global.header_flag"><a  (click)="onClickde()">View Intrested News</a></li>
+          <li id="lik" *ngIf="_global.like_flag"><a (click)="onClicklik()">View favorite News</a></li>
           <li *ngIf="log_flag"><a (click)="onLogOut()">Log Out</a></li>
           <li *ngIf="!log_flag"><a (click)="onSignIn()">Sign In</a></li>
         </ul>

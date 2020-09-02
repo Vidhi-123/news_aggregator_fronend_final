@@ -36,6 +36,7 @@ export class HeaderComponent implements OnInit {
   document.getElementById('de').classList.add('active');
     document.getElementById('ho').classList.remove('active');
     document.getElementById('lik').classList.remove('active');
+    window.location.href="http://localhost:4200/design/";
   }
 
   onClicklik()
@@ -45,6 +46,7 @@ export class HeaderComponent implements OnInit {
   document.getElementById('lik').classList.add('active');
     document.getElementById('ho').classList.remove('active');
     document.getElementById('de').classList.remove('active');
+    window.location.href="http://localhost:4200/likedposts/";
   }
 
 

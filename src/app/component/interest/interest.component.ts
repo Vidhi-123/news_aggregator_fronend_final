@@ -35,7 +35,8 @@ export class InterestComponent implements OnInit {
 
   StartButton()
   {
-
+    if(this.user_id!=0)
+    {
     this._ser.deleteIntrestByUserId(this.user_id).subscribe(
       (data:any)=>{
 
@@ -57,7 +58,12 @@ export class InterestComponent implements OnInit {
           }
         );
     
-    
+        }
+        else
+        {
+          //window.location.href="http://localhost:4200/design"
+          alert("you need to login!!")
+        }
     
   }
 
@@ -81,7 +87,8 @@ export class InterestComponent implements OnInit {
           this.Count_arr.push(0);
         }
 
-
+        if(this.user_id!=0)
+        {
         this._ser.getIntrestByUserId(this.user_id).subscribe(
           (data:any[])=>
           {
@@ -100,6 +107,7 @@ export class InterestComponent implements OnInit {
             }
           }
         );
+        }
         
 
 
