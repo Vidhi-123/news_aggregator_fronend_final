@@ -105,21 +105,23 @@
 							<!-- <p>{{item}}</p> -->
 							<article class="article" style="height: 25em;">
 								<div class="article-img">
-									<a href={{item.url}} target="_blank">
-										<img src={{item.urlToImage}} style="height: 15em;" alt="Image Loading...">
+									<a href={{item.news.url}} target="_blank">
+										<img src={{item.news.urlToImage}} style="height: 15em;" alt="Image Loading...">
 									</a>
 									<ul class="article-info">
-										<li class="article-type"><i class="fa fa-camera"></i></li>
+										<li class="article-type" (click)="onClickLike(item)"><i [class]="item.liked_posts%2?'fa fa-heart':'fa fa-heart-o'"></i></li>
+									<li style="background-color: transparent;">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+										<li class="article-type"><i class="fa fa-share-alt"></i></li>
 									</ul>
 								</div>
 								<div class="article-body">
-									<h3 class="article-title" id="title_id"><a href={{item.url}}
-											target="_blank">{{item.title}}</a></h3>
+									<h3 class="article-title" id="title_id"><a href={{item.news.url}}
+											target="_blank">{{item.news.title}}</a></h3>
 									<ul class="article-meta">
-										<li><i class="fa fa-clock-o"></i> {{item.publishedAt}}</li>
+										<li><i class="fa fa-clock-o"></i> {{item.news.publishedAt}}</li>
 										
 									</ul>
-									<p>{{item.description}}</p>
+									<p>{{item.news.description}}</p>
 								</div>
 							</article>
 							<!-- /ARTICLE -->

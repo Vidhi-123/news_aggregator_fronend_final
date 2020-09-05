@@ -20,4 +20,19 @@ news:any[];
     )
   }
 
+
+  onDlike(item:any)
+  {
+    let user_id=Number(localStorage.getItem('user_id'));
+    this._likedser.deletePosts(user_id, item.title).subscribe(
+      (data: any) => {
+        this.news.splice(this.news.indexOf(item),1);
+        //this.news=data;
+        console.log(data);
+      }
+    )
+  }
+
+
+
 }

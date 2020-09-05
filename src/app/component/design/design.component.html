@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <div class="main-header">
-            <h1><span>Latest </span>{{item1}} News</h1>
+            <p *ngIf="news.length==0">"You Have Not selected any Intrest Yet!!"</p>
             
         </div>
         <div *ngFor="let item of news">
@@ -37,20 +37,21 @@
 
                 <mat-menu #menu="matMenu">
                     <button mat-menu-item>
-                        <a style="text-decoration: none;" href="https://facebook.com/sharer.php?u={{item.url}}/post/2018/06/01/{{item.title}}" target="_blank">
+                        <a style="text-decoration: none;" href="https://facebook.com/sharer.php?u={{item.news.url}}/post/2018/06/01/{{item.news.title}}" target="_blank">
                          <img src="../../../assets/img/3_icon.jpeg">
                              Facebook
                         </a>
                     </button>
 
+
                     <button mat-menu-item>
-                        <a href="https://twitter.com/intent/tweet?url={{item.url}};text={{item.title}}" style="text-decoration: none;" target="_blank">
+                        <a href="https://twitter.com/intent/tweet?url={{item.news.url}};text={{item.news.title}}" style="text-decoration: none;" target="_blank">
                              <img src="../../../assets/img/twitter_icon.png" style="margin-left: -10px;" height="50px" width="50px">
                             Twitter
                         </a>
                     </button>
 
-                    <button mat-menu-item (click)="copyMessage(item.url)">
+                    <button mat-menu-item (click)="copyMessage(item.news.url)">
                       <mat-icon>Copy</mat-icon>
                       <span>Copy Url</span>
                     </button>

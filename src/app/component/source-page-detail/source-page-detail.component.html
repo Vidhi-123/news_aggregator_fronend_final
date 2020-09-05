@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -196,6 +196,130 @@
     </div>
 
 
+</body>
+
+</html>
+
+
+
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div *ngFor="let item of news;let i=index">
+
+				<div [class]="(((i%12)==3 || (i%12)==7 || (i%12)==11 ) && (i%12)>=3)?'col-md-6':((i%12)<3)?'col-md-4':'col-md-3'"
+					style="padding-top: 50px;">
+					<div class="card example-card">
+						<a href="{{item.news.url}}" target="_blank" style="text-decoration: none;color: black;">
+							<div class="post-image">
+								<img src="{{item.news.urlToImage}}" alt="" class="img-responsive">
+							</div>
+						</a>
+						<div class="news-content">
+							<a href="{{item.news.url}}" target="_blank" style="text-decoration: none;color: black;">
+								<h2 class="post-header">{{item.news.title}}</h2>
+								<p>{{item.news.description}}</p>
+							</a>
+							<button mat-icon-button aria-label="Example icon button with a heart icon"
+								[color]="(item.liked_posts%2) ? 'warn' :''" (click)="onClickLike(item)">
+								<mat-icon>favorite</mat-icon>
+							</button>
+
+							<button [matMenuTriggerFor]="menu" mat-icon-button aria-label="Example icon button with a heart icon"
+								 (click)="onClickShare()">
+								<mat-icon>share</mat-icon>
+							</button>
+
+
+
+
+							<mat-menu #menu="matMenu">
+								<button mat-menu-item>
+									<a style="text-decoration: none;" href="https://facebook.com/sharer.php?u={{item.news.url}}/post/2018/06/01/{{item.news.title}}" target="_blank">
+								 	<img src="../../../assets/img/3_icon.jpeg">
+										 Facebook
+									</a>
+								</button>
+
+
+								<button mat-menu-item>
+									<a href="https://twitter.com/intent/tweet?url={{item.news.url}};text={{item.news.title}}" style="text-decoration: none;" target="_blank">
+										 <img src="../../../assets/img/twitter_icon.png" style="margin-left: -10px;" height="50px" width="50px">
+										Twitter
+									</a>
+								</button>
+
+								<button mat-menu-item (click)="copyMessage(item.news.url)">
+								  <mat-icon>Copy</mat-icon>
+								  <span>Copy Url</span>
+								</button>
+							  </mat-menu>
+
+							  <!-- <tweet url={{item.url}} text={{item.title}}></tweet> -->
+
+
+
+
+
+
+
+
+<!-- 							
+							<a href="https://www.facebook.com/sharer/sharer.php?app_id=317441179435028&sdk=joey&u={{item.url}}&display=popup&ref=plugin&src=share_button"
+								onclick="return !window.open(this.href, 'Facebook', 'width=640,height=580')">
+								<img style="display: inline;height: 30px; width: 30px;"
+									src="https://img.icons8.com/material/24/000000/facebook--v1.png" />
+							</a>
+							 -->
+
+							<!-- <button  value="click to copy">Copy this</button> -->
+
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<script src="src/js/angular-socialshare.js"></script>
 </body>
 
 </html>

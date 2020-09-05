@@ -10,21 +10,25 @@
 <body>
     <div class="container">
         <div class="main-header">
-            <h1><span>Latest </span>{{item1}} News</h1>
-            <p> "Yoga is the journey of the self, through the self, to the self."</p>
+            
+            <p *ngIf="news.length==0">"You Have No Favourite Post Yet!!"</p>
         </div>
         <div *ngFor="let item of news">
-            <a href="{{item.url}}" target="_blank" style="text-decoration: none;color: black;">
+           
             <div class="card">
+                <a href="{{item.url}}" target="_blank" style="text-decoration: none;color: black;">
                 <img src="{{item.url_to_image}}" alt="image loading">
+                </a>
                 <div>
+                    <a href="{{item.url}}" target="_blank" style="text-decoration: none;color: black;">
                     <h3>{{item.title}}</h3>
                     <p>{{item.description}}</p>
-                    <a href="#" class="btn">DISLIKE</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </a>
+                    <a class="btn" (click)="onDlike(item)">DISLIKE</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <a href="#" class="btn">SHARE</a>
                 </div>
             </div>
-        </a>
+        
         </div>
     </div>
 

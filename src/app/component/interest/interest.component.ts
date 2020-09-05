@@ -50,7 +50,7 @@ export class InterestComponent implements OnInit {
           );
           if(i==this.Selected_intrest.length-1)
           {
-            window.location.href="http://localhost:4200/design"
+            window.location.href="http://localhost:4200/design/"
           }
         }
         

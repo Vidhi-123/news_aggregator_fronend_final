@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit {
   document.getElementById('de').classList.add('active');
     document.getElementById('ho').classList.remove('active');
     document.getElementById('lik').classList.remove('active');
-    window.location.href="http://localhost:4200/design/";
+    window.location.href="http://localhost:4200/design/"
   }
 
   onClicklik()
@@ -91,44 +91,25 @@ export class HeaderComponent implements OnInit {
   
     let user_id=localStorage.getItem('user_id');
     console.log(user_id);
+
     
-    if(user_id!=null)
+
+      if(user_id!=null)
     {
       this.log_flag=true;
-      this._ser.getIntrestByUserId(user_id).subscribe(
-        (data:any[])=>
-        {
-          console.log(data);
-          if(data.length>0)
-          {
-            this._global.header_flag=true;
-
-    
-          }
-          
-        }
-      );
-
-      this._ser1.getLikedPostsByUserId(user_id).subscribe(
-        (data:any[])=>
-        {
-          console.log(data);
-          if(data.length>0)
-          {
-            this._global.like_flag=true;
-            
-    
-          }
-          
-        }
-      );
-
+      this._global.header_flag=true;
+      this._global.like_flag=true;
+      
     }
     else
     {
       this._global.header_flag=false;
       this._global.like_flag=false;
     }
+
+    
+    
+    
     
   }
 

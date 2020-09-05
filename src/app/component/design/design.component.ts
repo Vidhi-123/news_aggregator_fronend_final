@@ -23,10 +23,11 @@ export class DesignComponent implements OnInit {
   item1:string;
   news:design_news[]=[];
   cats:any[]=[];
-  liked_posts: number[] = [];
+  //liked_posts: number[] = [];
   constructor(private _ser:IntrestService,private act_router:ActivatedRoute,private newsService:NewsService,private _likedser: LikedPostsService) { }
 
   ngOnInit() {
+    this.news=[];
     // this.item1 = this.act_router.snapshot.params["name"];
     let user_id=Number(localStorage.getItem('user_id'));
     //console.log(this.item1);
@@ -42,296 +43,185 @@ export class DesignComponent implements OnInit {
           
           if(data[i].cat_id==5)
           {
-            this.newsService.getArticleByCovid().subscribe((data:any) =>{ 
+            this.newsService.getArticleByCovid().subscribe((data1:any) =>{ 
               //console.log(data);
            
   
         
-              for(let i=0;i<data.articles.length;i++)
+              for(let j=0;j<data1.articles.length;j++)
               {
-                if(data.articles[i].description!=null)
+                if(data1.articles[j].description!=null)
                 {
                 
-                if(data.articles[i].description.length>=150)
+                if(data1.articles[j].description.length>=150)
                 {
-                  data.articles[i].description=data.articles[i].description.substr(0,150) + '...';
-                  console.log(data.articles[i].description);
-                  this.news.push(new design_news(data.articles[i],0));
+                  data1.articles[j].description=data1.articles[j].description.substr(0,150) + '...';
+                  console.log(data1.articles[j].description);
+                  this.news.push(new design_news(data1.articles[j],0));
                 }
               
                 else
-                this.news.push(new design_news(data.articles[i],0));
+                this.news.push(new design_news(data1.articles[j],0));
               }
-              if(i==data.length-1)
-              {
-                this._likedser.getLikedPostsByUserId(user_id).subscribe(
-                  (data1: any[]) => {
-                    console.log(data);
-                    for (let i = 0; i < this.news.length; i++) {
-                      for (let j = 0; j < data1.length; j++) {
-                        if (this.news[i].news.url == data1[j].url) {
-                          //this.liked_posts[i] = 1;
-                              this.news[i].liked_posts=1;
-                        
-                        }
-                      }
-                    }
-                  }
-                )
-              }
+             
             }
             });
           }
           else if(data[i].cat_id==1)
           {
-            this.newsService.getArticleByYoga().subscribe((data:any) =>{ 
+            this.newsService.getArticleByYoga().subscribe((data1:any) =>{ 
               //console.log(data);
            
   
         
-              for(let i=0;i<data.articles.length;i++)
+              for(let j=0;j<data1.articles.length;j++)
               {
-                if(data.articles[i].description!=null)
+                if(data1.articles[j].description!=null)
                 {
                 
-                if(data.articles[i].description.length>=150)
+                if(data1.articles[j].description.length>=150)
                 {
-                  data.articles[i].description=data.articles[i].description.substr(0,150) + '...';
-                  console.log(data.articles[i].description);
-                  this.news.push(new design_news(data.articles[i],0));
+                  data1.articles[j].description=data1.articles[j].description.substr(0,150) + '...';
+                  console.log(data1.articles[j].description);
+                  this.news.push(new design_news(data1.articles[j],0));
                 }
               
                 else
-                this.news.push(new design_news(data.articles[i],0));
+                this.news.push(new design_news(data1.articles[j],0));
               }
-              if(i==data.length-1)
-              {
-                this._likedser.getLikedPostsByUserId(user_id).subscribe(
-                  (data1: any[]) => {
-                    console.log(data);
-                    for (let i = 0; i < this.news.length; i++) {
-                      for (let j = 0; j < data1.length; j++) {
-                        if (this.news[i].news.url == data1[j].url) {
-                          //this.liked_posts[i] = 1;
-                              this.news[i].liked_posts=1;
-                        
-                        }
-                      }
-                    }
-                  }
-                )
-              }
+             
             }
             });
           }
           else if(data[i].cat_id==3)
           {
-            this.newsService.getArticleByLifeStyle().subscribe((data:any) =>{ 
+            this.newsService.getArticleByLifeStyle().subscribe((data1:any) =>{ 
               //console.log(data);
            
   
         
-              for(let i=0;i<data.articles.length;i++)
+              for(let j=0;j<data1.articles.length;j++)
               {
-                if(data.articles[i].description!=null)
+                if(data1.articles[j].description!=null)
                 {
                 
-                if(data.articles[i].description.length>=150)
+                if(data1.articles[j].description.length>=150)
                 {
-                  data.articles[i].description=data.articles[i].description.substr(0,150) + '...';
-                  console.log(data.articles[i].description);
-                  this.news.push(new design_news(data.articles[i],0));
+                  data1.articles[j].description=data1.articles[j].description.substr(0,150) + '...';
+                  console.log(data1.articles[j].description);
+                  this.news.push(new design_news(data1.articles[j],0));
                 }
               
                 else
-                this.news.push(new design_news(data.articles[i],0));
+                this.news.push(new design_news(data1.articles[j],0));
               }
-              if(i==data.length-1)
-              {
-                this._likedser.getLikedPostsByUserId(user_id).subscribe(
-                  (data1: any[]) => {
-                    console.log(data);
-                    for (let i = 0; i < this.news.length; i++) {
-                      for (let j = 0; j < data1.length; j++) {
-                        if (this.news[i].news.url == data1[j].url) {
-                          //this.liked_posts[i] = 1;
-                              this.news[i].liked_posts=1;
-                        
-                        }
-                      }
-                    }
-                  }
-                )
-              }
+              
             }
             });
           }
           else if(data[i].cat_id==10)
           {
-            this.newsService.getArticleByPolitics().subscribe((data:any) =>{ 
+            this.newsService.getArticleByPolitics().subscribe((data1:any) =>{ 
               //console.log(data);
            
   
         
-              for(let i=0;i<data.articles.length;i++)
+              for(let j=0;j<data1.articles.length;j++)
               {
-                if(data.articles[i].description!=null)
+                if(data1.articles[j].description!=null)
                 {
                 
-                if(data.articles[i].description.length>=150)
+                if(data1.articles[j].description.length>=150)
                 {
-                  data.articles[i].description=data.articles[i].description.substr(0,150) + '...';
-                  console.log(data.articles[i].description);
-                  this.news.push(new design_news(data.articles[i],0));
+                  data1.articles[j].description=data1.articles[j].description.substr(0,150) + '...';
+                  console.log(data1.articles[j].description);
+                  this.news.push(new design_news(data1.articles[j],0));
                 }
               
                 else
-                this.news.push(new design_news(data.articles[i],0));
+                this.news.push(new design_news(data1.articles[j],0));
               }
-              if(i==data.length-1)
-              {
-                this._likedser.getLikedPostsByUserId(user_id).subscribe(
-                  (data1: any[]) => {
-                    console.log(data);
-                    for (let i = 0; i < this.news.length; i++) {
-                      for (let j = 0; j < data1.length; j++) {
-                        if (this.news[i].news.url == data1[j].url) {
-                          //this.liked_posts[i] = 1;
-                              this.news[i].liked_posts=1;
-                        
-                        }
-                      }
-                    }
-                  }
-                )
-              }
+              
             }
-            });          }
+            });          
+          }
           else if(data[i].cat_id==15)
           {
 
-            this.newsService.getArticleByFood().subscribe((data:any) =>{ 
+            this.newsService.getArticleByFood().subscribe((data1:any) =>{ 
               //console.log(data);
            
   
         
-              for(let i=0;i<data.articles.length;i++)
+              for(let j=0;j<data1.articles.length;j++)
               {
-                if(data.articles[i].description!=null)
+                if(data1.articles[j].description!=null)
                 {
                 
-                if(data.articles[i].description.length>=150)
+                if(data1.articles[j].description.length>=150)
                 {
-                  data.articles[i].description=data.articles[i].description.substr(0,150) + '...';
-                  console.log(data.articles[i].description);
-                  this.news.push(new design_news(data.articles[i],0));
+                  data1.articles[j].description=data1.articles[j].description.substr(0,150) + '...';
+                  console.log(data1.articles[j].description);
+                  this.news.push(new design_news(data1.articles[j],0));
                 }
               
                 else
-                this.news.push(new design_news(data.articles[i],0));
+                this.news.push(new design_news(data1.articles[j],0));
               }
-              if(i==data.length-1)
-              {
-                this._likedser.getLikedPostsByUserId(user_id).subscribe(
-                  (data1: any[]) => {
-                    console.log(data);
-                    for (let i = 0; i < this.news.length; i++) {
-                      for (let j = 0; j < data1.length; j++) {
-                        if (this.news[i].news.url == data1[j].url) {
-                          //this.liked_posts[i] = 1;
-                              this.news[i].liked_posts=1;
-                        
-                        }
-                      }
-                    }
-                  }
-                )
-              }
+              
             }
             });
           }
           else if(data[i].cat_id==13)
           {
-            this.newsService.getArticleByStock().subscribe((data:any) =>{ 
+            this.newsService.getArticleByStock().subscribe((data1:any) =>{ 
               //console.log(data);
            
   
         
-              for(let i=0;i<data.articles.length;i++)
+              for(let j=0;j<data1.articles.length;j++)
               {
-                if(data.articles[i].description!=null)
+                if(data1.articles[j].description!=null)
                 {
                 
-                if(data.articles[i].description.length>=150)
+                if(data1.articles[j].description.length>=150)
                 {
-                  data.articles[i].description=data.articles[i].description.substr(0,150) + '...';
-                  console.log(data.articles[i].description);
-                  this.news.push(new design_news(data.articles[i],0));
+                  data1.articles[j].description=data1.articles[j].description.substr(0,150) + '...';
+                  console.log(data1.articles[j].description);
+                  this.news.push(new design_news(data1.articles[j],0));
                 }
               
                 else
-                this.news.push(new design_news(data.articles[i],0));
+                this.news.push(new design_news(data1.articles[j],0));
               }
-              if(i==data.length-1)
-              {
-                this._likedser.getLikedPostsByUserId(user_id).subscribe(
-                  (data1: any[]) => {
-                    console.log(data);
-                    for (let i = 0; i < this.news.length; i++) {
-                      for (let j = 0; j < data1.length; j++) {
-                        if (this.news[i].news.url == data1[j].url) {
-                          //this.liked_posts[i] = 1;
-                              this.news[i].liked_posts=1;
-                        
-                        }
-                      }
-                    }
-                  }
-                )
-              }
+              
             }
             });
           }
           else if(data[i].cat_id==9)
           {
   
-            this.newsService.getArticleByMovies().subscribe((data:any) =>{ 
+            this.newsService.getArticleByMovies().subscribe((data1:any) =>{ 
               //console.log(data);
            
   
         
-              for(let i=0;i<data.articles.length;i++)
+              for(let j=0;j<data1.articles.length;j++)
               {
-                if(data.articles[i].description!=null)
+                if(data1.articles[j].description!=null)
                 {
                 
-                if(data.articles[i].description.length>=150)
+                if(data1.articles[j].description.length>=150)
                 {
-                  data.articles[i].description=data.articles[i].description.substr(0,150) + '...';
-                  console.log(data.articles[i].description);
-                  this.news.push(new design_news(data.articles[i],0));
+                  data1.articles[j].description=data1.articles[j].description.substr(0,150) + '...';
+                  console.log(data1.articles[j].description);
+                  this.news.push(new design_news(data1.articles[j],0));
                 }
               
                 else
-                this.news.push(new design_news(data.articles[i],0));
+                this.news.push(new design_news(data1.articles[j],0));
               }
-              if(i==data.length-1)
-              {
-                this._likedser.getLikedPostsByUserId(user_id).subscribe(
-                  (data1: any[]) => {
-                    console.log(data);
-                    for (let i = 0; i < this.news.length; i++) {
-                      for (let j = 0; j < data1.length; j++) {
-                        if (this.news[i].news.url == data1[j].url) {
-                          //this.liked_posts[i] = 1;
-                              this.news[i].liked_posts=1;
-                        
-                        }
-                      }
-                    }
-                  }
-                )
-              }
+              
             }
             });
           
@@ -339,171 +229,107 @@ export class DesignComponent implements OnInit {
           else if(data[i].cat_id==6)
           {
 
-            this.newsService.getArticleByFashion().subscribe((data:any) =>{ 
+            this.newsService.getArticleByFashion().subscribe((data1:any) =>{ 
               //console.log(data);
            
   
         
-              for(let i=0;i<data.articles.length;i++)
+              for(let j=0;j<data1.articles.length;j++)
               {
-                if(data.articles[i].description!=null)
+                if(data1.articles[j].description!=null)
                 {
                 
-                if(data.articles[i].description.length>=150)
+                if(data1.articles[j].description.length>=150)
                 {
-                  data.articles[i].description=data.articles[i].description.substr(0,150) + '...';
-                  console.log(data.articles[i].description);
-                  this.news.push(new design_news(data.articles[i],0));
+                  data1.articles[j].description=data1.articles[j].description.substr(0,150) + '...';
+                  console.log(data1.articles[j].description);
+                  this.news.push(new design_news(data1.articles[j],0));
                 }
               
                 else
-                this.news.push(new design_news(data.articles[i],0));
+                this.news.push(new design_news(data1.articles[j],0));
               }
-              if(i==data.length-1)
-              {
-                this._likedser.getLikedPostsByUserId(user_id).subscribe(
-                  (data1: any[]) => {
-                    console.log(data);
-                    for (let i = 0; i < this.news.length; i++) {
-                      for (let j = 0; j < data1.length; j++) {
-                        if (this.news[i].news.url == data1[j].url) {
-                          //this.liked_posts[i] = 1;
-                              this.news[i].liked_posts=1;
-                        
-                        }
-                      }
-                    }
-                  }
-                )
-              }
+              
             }
             });
           }
           else if(data[i].cat_id==14)
           {
  
-            this.newsService.getArticleByInvesting().subscribe((data:any) =>{ 
+            this.newsService.getArticleByInvesting().subscribe((data1:any) =>{ 
               //console.log(data);
            
   
         
-              for(let i=0;i<data.articles.length;i++)
+              for(let j=0;j<data1.articles.length;j++)
               {
-                if(data.articles[i].description!=null)
+                if(data1.articles[j].description!=null)
                 {
                 
-                if(data.articles[i].description.length>=150)
+                if(data1.articles[j].description.length>=150)
                 {
-                  data.articles[i].description=data.articles[i].description.substr(0,150) + '...';
-                  console.log(data.articles[i].description);
-                  this.news.push(new design_news(data.articles[i],0));
+                  data1.articles[j].description=data1.articles[j].description.substr(0,150) + '...';
+                  console.log(data1.articles[j].description);
+                  this.news.push(new design_news(data1.articles[j],0));
                 }
               
                 else
-                this.news.push(new design_news(data.articles[i],0));
+                this.news.push(new design_news(data1.articles[j],0));
               }
-              if(i==data.length-1)
-              {
-                this._likedser.getLikedPostsByUserId(user_id).subscribe(
-                  (data1: any[]) => {
-                    console.log(data);
-                    for (let i = 0; i < this.news.length; i++) {
-                      for (let j = 0; j < data1.length; j++) {
-                        if (this.news[i].news.url == data1[j].url) {
-                          //this.liked_posts[i] = 1;
-                              this.news[i].liked_posts=1;
-                        
-                        }
-                      }
-                    }
-                  }
-                )
-              }
+              
             }
             });
           }
           else if(data[i].cat_id==8)
           {
-            this.newsService.getArticleByTravel().subscribe((data:any) =>{ 
+            this.newsService.getArticleByTravel().subscribe((data1:any) =>{ 
               //console.log(data);
            
   
         
-              for(let i=0;i<data.articles.length;i++)
+              for(let j=0;j<data1.articles.length;j++)
               {
-                if(data.articles[i].description!=null)
+                if(data1.articles[j].description!=null)
                 {
                 
-                if(data.articles[i].description.length>=150)
+                if(data1.articles[j].description.length>=150)
                 {
-                  data.articles[i].description=data.articles[i].description.substr(0,150) + '...';
-                  console.log(data.articles[i].description);
-                  this.news.push(new design_news(data.articles[i],0));
+                  data1.articles[j].description=data1.articles[j].description.substr(0,150) + '...';
+                  console.log(data1.articles[j].description);
+                  this.news.push(new design_news(data1.articles[j],0));
                 }
               
                 else
-                this.news.push(new design_news(data.articles[i],0));
+                this.news.push(new design_news(data1.articles[j],0));
               }
-              if(i==data.length-1)
-              {
-                this._likedser.getLikedPostsByUserId(user_id).subscribe(
-                  (data1: any[]) => {
-                    console.log(data);
-                    for (let i = 0; i < this.news.length; i++) {
-                      for (let j = 0; j < data1.length; j++) {
-                        if (this.news[i].news.url == data1[j].url) {
-                          //this.liked_posts[i] = 1;
-                              this.news[i].liked_posts=1;
-                        
-                        }
-                      }
-                    }
-                  }
-                )
-              }
+              
             }
             });
           }
           else if(data[i].cat_id==7)
           {
  
-            this.newsService.getArticleByFinance().subscribe((data:any) =>{ 
+            this.newsService.getArticleByFinance().subscribe((data1:any) =>{ 
               //console.log(data);
            
   
         
-              for(let i=0;i<data.articles.length;i++)
+              for(let j=0;j<data1.articles.length;j++)
               {
-                if(data.articles[i].description!=null)
+                if(data1.articles[j].description!=null)
                 {
                 
-                if(data.articles[i].description.length>=150)
+                if(data1.articles[j].description.length>=150)
                 {
-                  data.articles[i].description=data.articles[i].description.substr(0,150) + '...';
-                  console.log(data.articles[i].description);
-                  this.news.push(new design_news(data.articles[i],0));
+                  data1.articles[j].description=data1.articles[j].description.substr(0,150) + '...';
+                  console.log(data1.articles[j].description);
+                  this.news.push(new design_news(data1.articles[j],0));
                 }
               
                 else
-                this.news.push(new design_news(data.articles[i],0));
+                this.news.push(new design_news(data1.articles[j],0));
               }
-              if(i==data.length-1)
-              {
-                this._likedser.getLikedPostsByUserId(user_id).subscribe(
-                  (data1: any[]) => {
-                    console.log(data);
-                    for (let i = 0; i < this.news.length; i++) {
-                      for (let j = 0; j < data1.length; j++) {
-                        if (this.news[i].news.url == data1[j].url) {
-                          //this.liked_posts[i] = 1;
-                              this.news[i].liked_posts=1;
-                        
-                        }
-                      }
-                    }
-                  }
-                )
-              }
+              
             }
             });
           }
@@ -511,177 +337,138 @@ export class DesignComponent implements OnInit {
           {
 
   
-            this.newsService.getArticleByStartups().subscribe((data:any) =>{ 
+            this.newsService.getArticleByStartups().subscribe((data1:any) =>{ 
               //console.log(data);
            
   
         
-              for(let i=0;i<data.articles.length;i++)
+              for(let j=0;j<data1.articles.length;j++)
               {
-                if(data.articles[i].description!=null)
+                if(data1.articles[j].description!=null)
                 {
                 
-                if(data.articles[i].description.length>=150)
+                if(data1.articles[j].description.length>=150)
                 {
-                  data.articles[i].description=data.articles[i].description.substr(0,150) + '...';
-                  console.log(data.articles[i].description);
-                  this.news.push(new design_news(data.articles[i],0));
+                  data1.articles[j].description=data1.articles[j].description.substr(0,150) + '...';
+                  console.log(data1.articles[j].description);
+                  this.news.push(new design_news(data1.articles[j],0));
                 }
               
                 else
-                this.news.push(new design_news(data.articles[i],0));
+                this.news.push(new design_news(data1.articles[j],0));
               }
-              if(i==data.length-1)
-              {
-                this._likedser.getLikedPostsByUserId(user_id).subscribe(
-                  (data1: any[]) => {
-                    console.log(data);
-                    for (let i = 0; i < this.news.length; i++) {
-                      for (let j = 0; j < data1.length; j++) {
-                        if (this.news[i].news.url == data1[j].url) {
-                          //this.liked_posts[i] = 1;
-                              this.news[i].liked_posts=1;
-                        
-                        }
-                      }
-                    }
-                  }
-                )
-              }
+              
             }
             });
           }
           else if(data[i].cat_id==12)
           {
 
-            this.newsService.getArticleByScience().subscribe((data:any) =>{ 
+            this.newsService.getArticleByScience().subscribe((data1:any) =>{ 
               //console.log(data);
            
   
         
-              for(let i=0;i<data.articles.length;i++)
+              for(let j=0;j<data1.articles.length;j++)
               {
-                if(data.articles[i].description!=null)
+                if(data1.articles[j].description!=null)
                 {
                 
-                if(data.articles[i].description.length>=150)
+                if(data1.articles[j].description.length>=150)
                 {
-                  data.articles[i].description=data.articles[i].description.substr(0,150) + '...';
-                  console.log(data.articles[i].description);
-                  this.news.push(new design_news(data.articles[i],0));
+                  data1.articles[j].description=data1.articles[j].description.substr(0,150) + '...';
+                  console.log(data1.articles[j].description);
+                  this.news.push(new design_news(data1.articles[j],0));
                 }
               
                 else
-                this.news.push(new design_news(data.articles[i],0));
+                this.news.push(new design_news(data1.articles[j],0));
               }
-              if(i==data.length-1)
-              {
-                this._likedser.getLikedPostsByUserId(user_id).subscribe(
-                  (data1: any[]) => {
-                    console.log(data);
-                    for (let i = 0; i < this.news.length; i++) {
-                      for (let j = 0; j < data1.length; j++) {
-                        if (this.news[i].news.url == data1[j].url) {
-                          //this.liked_posts[i] = 1;
-                              this.news[i].liked_posts=1;
-                        
-                        }
-                      }
-                    }
-                  }
-                )
-              }
+              
             }
             });
            
           }
           else if(data[i].category_name==2)
           {
-            this.newsService.getArticleByTrump().subscribe((data:any) =>{ 
+            this.newsService.getArticleByTrump().subscribe((data1:any) =>{ 
               //console.log(data);
            
   
         
-              for(let i=0;i<data.articles.length;i++)
+              for(let j=0;j<data1.articles.length;j++)
               {
-                if(data.articles[i].description!=null)
+                if(data1.articles[j].description!=null)
                 {
                 
-                if(data.articles[i].description.length>=150)
+                if(data1.articles[j].description.length>=150)
                 {
-                  data.articles[i].description=data.articles[i].description.substr(0,150) + '...';
-                  console.log(data.articles[i].description);
-                  this.news.push(new design_news(data.articles[i],0));
+                  data1.articles[j].description=data1.articles[j].description.substr(0,150) + '...';
+                  console.log(data1.articles[j].description);
+                  this.news.push(new design_news(data1.articles[j],0));
                 }
               
                 else
-                this.news.push(new design_news(data.articles[i],0));
+                this.news.push(new design_news(data1.articles[j],0));
               }
-              if(i==data.length-1)
-              {
-                this._likedser.getLikedPostsByUserId(user_id).subscribe(
-                  (data1: any[]) => {
-                    console.log(data);
-                    for (let i = 0; i < this.news.length; i++) {
-                      for (let j = 0; j < data1.length; j++) {
-                        if (this.news[i].news.url == data1[j].url) {
-                          //this.liked_posts[i] = 1;
-                              this.news[i].liked_posts=1;
-                        
-                        }
-                      }
-                    }
-                  }
-                )
-              }
+              
             }
             });
           }
           else if(data[i].cat_id==11)
           {
 
-            this.newsService.getArticleByPsychology().subscribe((data:any) =>{ 
+            this.newsService.getArticleByPsychology().subscribe((data1:any) =>{ 
               //console.log(data);
            
   
         
-              for(let i=0;i<data.articles.length;i++)
+              for(let j=0;j<data1.articles.length;j++)
               {
-                if(data.articles[i].description!=null)
+                if(data1.articles[j].description!=null)
                 {
                 
-                if(data.articles[i].description.length>=150)
+                if(data1.articles[j].description.length>=150)
                 {
-                  data.articles[i].description=data.articles[i].description.substr(0,150) + '...';
-                  console.log(data.articles[i].description);
-                  this.news.push(new design_news(data.articles[i],0));
+                  data1.articles[j].description=data1.articles[j].description.substr(0,150) + '...';
+                  console.log(data1.articles[j].description);
+                  this.news.push(new design_news(data1.articles[j],0));
                 }
               
                 else
-                this.news.push(new design_news(data.articles[i],0));
+                this.news.push(new design_news(data1.articles[j],0));
               }
-              if(i==data.length-1)
-              {
-                this._likedser.getLikedPostsByUserId(user_id).subscribe(
-                  (data1: any[]) => {
-                    console.log(data);
-                    for (let i = 0; i < this.news.length; i++) {
-                      for (let j = 0; j < data1.length; j++) {
-                        if (this.news[i].news.url == data1[j].url) {
-                          //this.liked_posts[i] = 1;
-                              this.news[i].liked_posts=1;
-                        
-                        }
-                      }
-                    }
-                  }
-                )
-              }
+              
             }
             });
         
           }
+          setTimeout(()=>{
+
+            console.log(i);
+            this._likedser.getLikedPostsByUserId(user_id).subscribe(
+              (res1:any[])=>{
+                console.log(res1);
+                for(let j=0;j<res1.length;j++)
+                {
+                  for(let k=0;k<this.news.length;k++)
+                  {
+                    if(res1[j].url==this.news[k].news.url)
+                    {
+                      console.log(this.news[k]);
+                      this.news[k].liked_posts=1;
+                    }
+                  }
+                }
+              }
+            )
+
+          },1000)
+         
+
         }
+
+
       }
     );
    
