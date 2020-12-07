@@ -103,7 +103,7 @@
            
           </li>
           <li id="in"><a routerLink="/interest" (click)="onClickIn()">intrests</a></li>
-          <li id="de" *ngIf="_global.header_flag"><a href="http://localhost:4200/design/" (click)="onClickde()">View Intrested News</a></li>
+          <li id="de" *ngIf="h_flag=='true'"><a href="http://localhost:4200/design/" (click)="onClickde()">View Intrested News</a></li>
           <li id="lik" *ngIf="_global.like_flag"><a (click)="onClicklik()">View favorite News</a></li>
           <li *ngIf="log_flag"><a (click)="onLogOut()">Log Out</a></li>
           <li *ngIf="!log_flag"><a (click)="onSignIn()">Sign In</a></li>

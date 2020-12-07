@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
           console.log(this._global.header_flag);
           localStorage.setItem('email_id',data[0].email_id);
           localStorage.setItem('user_id',data[0].user_id);
+          localStorage.setItem('header_flag',"true");
           //this.childWindow = window.open("http://localhost:4200/");
           window.location.href="http://localhost:4200/";
           //this._router.navigate(['']);

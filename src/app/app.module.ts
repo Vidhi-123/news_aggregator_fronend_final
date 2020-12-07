@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule  } from "@angular/common/http";
 import { AngularFireModule } from "angularfire2";
 export const firebaseConfig = environment.firebaseConfig;
-
 import { AgmCoreModule } from '@agm/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -44,11 +43,15 @@ import { SignupComponent } from './component/signup/signup.component';
 
 import { LikedpostsComponent } from './component/likedposts/likedposts.component';
 
-
+import {DragDropModule} from '@angular/cdk/drag-drop'
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
 import { SliderComponent } from './component/slider/slider.component';
 import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
+import { TodoComponent } from './todo/todo.component';
+import { SlideComponent } from './slide/slide.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 
@@ -79,21 +82,27 @@ import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
     LoginComponent,
     SignupComponent,
     LikedpostsComponent,
-    SliderComponent
+    SliderComponent,
+    TodoComponent,
+    SlideComponent,
+    
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    DragDropModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatSlideToggleModule,
     MatToolbarModule,
     MatCardModule,
     MatDialogModule,
     BrowserAnimationsModule,
     MatIconModule,
     MatButtonModule,
+    MatCheckboxModule,
     MatMenuModule,
     MatFormFieldModule,
     JwSocialButtonsModule,

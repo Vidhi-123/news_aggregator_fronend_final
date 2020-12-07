@@ -1,0 +1,110 @@
+<!-- <h1>Done:{{c1}}</h1>
+<h1>Pending:{{c2}}</h1>
+
+<table  width="50%" style="border: 1px solid black;">
+  <tr>
+    <th>ID</th>
+    <th>DESCRIPTION</th>
+    <th>STATUS</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let item of arr">
+    <td>{{item.id}}</td>
+    <td>{{item.description}}</td>
+    <td *ngIf="item.status=='done'" style="background-color: green;">{{item.status}}</td>
+    <td *ngIf="item.status=='pending'" style="background-color: red;">{{item.status}}</td>
+    <td><button type="button" [disabled]="item.status=='done'" (click)="OnUpdate(item.id)">Update
+  </button>
+    <button type="button" (click)="OnDelete(item.id)">Delete</button></td>
+  </tr>
+</table>
+
+<h1 *ngIf="del_arr.length!=0">Deleted Items</h1>
+
+<table width="50%" style="border: 1px solid black;" [hidden]="del_arr.length==0"  style="border: 1px solid black;">
+
+  <tr>
+  <th>ID</th>
+  <th>Description</th>
+  <th>Status</th>
+  </tr>
+
+  <tr *ngFor="let items of del_arr">
+
+  <td>
+    {{items.id}}
+  </td>    
+  <td>
+    {{items.description}}
+  </td>
+  <td>
+    {{items.status}}
+  </td>
+  
+</tr>
+
+</table>
+
+<form>
+  <input type="number" id="id" name="id" [(ngModel)]="id1">
+  <br>
+
+  <input type="text" id="desc" name="desc" [(ngModel)]="desc">
+  <br>
+  
+  <button type="submit" (click)="onClickAdd()">ADD</button>
+</form>
+
+ -->
+
+
+ <table  width="40%">
+    <tr>
+      <th>Action</th>
+      <th>Value</th>
+    </tr>
+    
+  <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    
+  
+    <div class="example-box" *ngFor="let item of arr1;let i=index" cdkDrag>
+    <tr>
+  
+      <td>
+        <button type="button" (click)="cl(i)">Move</button>
+        <button type="button" (click)="indent(i)">Indent</button>
+        <button type="button" (click)="outdent(i)">Outdent</button>
+        <button type="button" (click)="delete(i)">Delete</button></td>
+      <td>
+        <ul>
+          <li id="{{item.value}}" style="margin-left: 0px;"> {{item.value}} </li>
+        </ul>
+      </td>
+      
+    </tr>
+    
+  </div> 
+  </div>
+  </table>
+  
+  
+  
+  
+  
+  <input type="text" [(ngModel)]="a1">
+  <br>
+  <br>
+  <button type="button"  class="btn btn-primary" style="width:80%;margin-left: 20px;" (click)="AddInArray()">Add</button>
+  
+  
+  <div *ngFor="let item of arr1;let i=index">
+  <ul>
+  
+    <li id="{{item.value}}" style="margin-left: 0px;"> {{item.value}} </li>
+    
+  </ul>
+    
+   
+  </div>
+
+  

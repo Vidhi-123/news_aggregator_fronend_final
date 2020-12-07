@@ -17,6 +17,7 @@ import { SignupComponent } from '../signup/signup.component';
 export class HeaderComponent implements OnInit {
 
   flag:boolean=true;
+  h_flag:string="false";
   log_flag:boolean=false;
   constructor(private _ser:IntrestService,public dialog: MatDialog,private _ser1:LikedPostsService,private _router:Router,private _global:global) { }
 
@@ -79,7 +80,10 @@ export class HeaderComponent implements OnInit {
     localStorage.clear();
     let user_id=localStorage.getItem('user_id');
     console.log(user_id);
-    this._global.header_flag=false;
+    //this._global.header_flag=false;
+    
+    localStorage.setItem("header_flag","false");
+    this.h_flag="false";
     this._global.like_flag=false;
     this.log_flag=false;
     this._router.navigate(['']);
@@ -97,13 +101,17 @@ export class HeaderComponent implements OnInit {
       if(user_id!=null)
     {
       this.log_flag=true;
-      this._global.header_flag=true;
+      //this._global.header_flag=true;
+      localStorage.setItem("header_flag","true");
+      this.h_flag="true";
       this._global.like_flag=true;
       
     }
     else
     {
-      this._global.header_flag=false;
+      //this._global.header_flag=false;
+      localStorage.setItem("header_flag","false");
+      this.h_flag="false";
       this._global.like_flag=false;
     }
 
